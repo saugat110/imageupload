@@ -1,0 +1,67 @@
+body{
+    height: 100vh;
+    margin:0px;
+    position: relative;
+}
+div.container{
+    background-color:  rgb(240, 240, 240);
+    width: 95%;
+    margin:0px auto;
+    height:95%;
+    overflow: scroll;
+    border:3px solid gray;
+}
+
+
+tr img{
+    width:100px;
+    height:100px;
+    object-fit:cover;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+table{
+    width: fit-content;
+    /* border:2px solid black; */
+}
+td{
+    border:1px solid black;
+    vertical-align: top;
+}
+
+#image_cell{
+    width: fit-content;
+    display: table;
+}
+th{
+    border:2px solid black;
+}
+
+#update_form{
+    display:none;
+    z-index:100;
+    position: absolute;
+    border:3px solid black;
+    top:17px;
+    background-color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button[type='button'] {
+            background-color: red;
+            height: 30px;
+            color: white;
+            border: 0;
+            border-radius: 7px;
+        }
+
+        button[type='button']:hover {
+            background-color: rgb(205, 2, 2);
+        }
+
+        .thumbnail-container {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .file-name-container {
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="test.php" enctype="multipart/form-data" method="post">
+        <input type="file" id="file-input" style="display:none" onchange="displaySelectedFile(this)">
+        <button type="button" onclick="document.getElementById('file-input').click()">Choose a image..</button>
+
+        <div id="file-info"></div>
+        <input type="submit">
+    </form>
+
+    <script>
+        function displaySelectedFile(input) {
+            var file = input.files[0];
+            var fileReader = new FileReader();
+
+            // Read the selected file as a data URL and create a thumbnail
+            fileReader.readAsDataURL(file);
+            fileReader.onload = function () {
+                var thumbnailUrl = this.result;
+                var thumbnailImage = document.createElement('img');
+                thumbnailImage.src = thumbnailUrl;
+                thumbnailImage.width = 100; // Set the width of the thumbnail image
+                var fileInfo = document.getElementById('file-info');
+                fileInfo.textContent = ''; // Clear any previous file info
+                fileInfo.appendChild(thumbnailImage); // Add the thumbnail to the file info
+                fileInfo.appendChild(document.createTextNode(file.name)); // Add the file name to the file info
+            };
+        }
+    </script>
+
+
+
+</body>
+
+</html>

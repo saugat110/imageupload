@@ -1,0 +1,6 @@
+enctype attribute specifies how form data should be encoded while submitted to browser
+
+its value multipart/form-data is necessary if user will upload file through the form
+
+getimage requires $_FILES['ifile']['tmp_name']
+
